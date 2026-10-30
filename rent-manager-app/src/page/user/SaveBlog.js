@@ -68,14 +68,14 @@ function SaveBlog(props) {
                                 <h5 className="card-title">Lưu bài đăng</h5>
                                 <h6 className="card-subtitle text-muted"> Quản lý các bài đăng đã lưu.</h6>
                             </div>
-                            <div className="card-body">
+                            <div className="row">
                                 {tableData.map(item => (
 
                                     <div className="col-md-4">
                                         <div className="card-box-a card-shadow">
                                             <div className="img-box-a">
                                                 {item?.room.roomMedia[0] ?
-                                                    <img src={item?.room.roomMedia[0].files} alt="" className="img-a img-fluid" style={{ width: "350px", height: "450px" }} />
+                                                    <img src={"http://localhost:8081/document/"+item?.room.roomMedia[0].files} alt="" className="img-a img-fluid" style={{ width: "350", height: "450px" }} />
                                                     :
                                                     <img src="assets/img/property-1.jpg" alt="" className="img-a img-fluid" style={{ width: "350px", height: "450px" }} />
                                                 }

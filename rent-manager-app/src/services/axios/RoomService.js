@@ -1,7 +1,7 @@
 import axios from "axios"
 import { ACCESS_TOKEN } from "../../constants/Connect";
 
-const BASE_URL = "http://localhost:8080/"
+const BASE_URL = "http://localhost:8081/"
 
 class RoomService {
 

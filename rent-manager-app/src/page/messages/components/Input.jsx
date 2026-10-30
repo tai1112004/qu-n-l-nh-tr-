@@ -40,7 +40,7 @@ const Input = () => {
 
   useEffect(() => {
     // Tạo kết nối WebSocket tới server
-    const socket = new SockJS("http://localhost:8080/ws");
+    const socket = new SockJS("http://localhost:8081/ws");
     const stompClient = Stomp.over(socket);
 
     // Kết nối tới WebSocket server
@@ -85,7 +85,7 @@ const Input = () => {
 
   const fetchMessageData = async (sendId) => {
     try {
-      const response = await fetch(`http://localhost:8080/user/message-chat/${sendId}`, {
+      const response = await fetch(`http://localhost:8081/user/message-chat/${sendId}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${accessToken}`,

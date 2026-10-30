@@ -10,7 +10,7 @@ class Footer extends Component {
                             <div class="col-sm-12 col-md-4">
                                 <div class="widget-a">
                                     <div class="w-header-a">
-                                        <h3 class="w-title-a text-brand">PhongTroSinhVien</h3>
+                                        <h3 class="w-title-a text-brand">The Rental Zone</h3>
                                     </div>
                                     <div class="w-body-a">
                                         <p class="w-text-a color-text-a">
@@ -23,7 +23,7 @@ class Footer extends Component {
                                                 <span class="color-text-a">Email .</span> contact@example.com
                                             </li>
                                             <li class="color-a">
-                                                <span class="color-text-a">Số điện thoại .</span> +54 356 945234
+                                                <span class="color-text-a">Số điện thoại .</span> +84 xx xxxxx
                                             </li>
                                         </ul>
                                     </div>

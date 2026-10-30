@@ -47,7 +47,7 @@ function LoginRentaler(props) {
                             <div className="row justify-content-center">
                                 <div className="col-md-8">
                                     <div className="mb-4">
-                                        <h3>Đăng nhập <a href="/" style={{ textDecoration: 'none' }}>Estate<span className="color-b">Agency</span></a></h3>
+                                        <h3>Đăng nhập <a href="/" style={{ textDecoration: 'none' }}>The <span className="color-b">Rental</span> Zone</a></h3>
                                         <p className="mb-4">Nếu bạn chưa có tài khoản. <a href="/signup-rentaler">Đăng ký tài khoản mới</a></p>
                                     </div>
                                     <LoginForm />

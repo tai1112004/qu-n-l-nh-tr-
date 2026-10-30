@@ -18,7 +18,7 @@ const Chats = () => {
           return;
         }
 
-        const response = await fetch("http://localhost:8080/user/message", {
+        const response = await fetch("http://localhost:8081/user/message", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -48,7 +48,7 @@ const Chats = () => {
       const userId = user.id; // Lấy userId từ thông tin user
   
       // Gọi API để lấy thông tin tin nhắn với userId
-      const response = await fetch(`http://localhost:8080/user/message-chat/${userId}`, {
+      const response = await fetch(`http://localhost:8081/user/message-chat/${userId}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

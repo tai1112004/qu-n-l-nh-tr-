@@ -59,7 +59,7 @@
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
   <script src="/assets/js/main.js"></script>
   <script src="/assets/js/app.js"></script>
-  <script>
+  <!-- <script>
     (function (d, m) {
       var kommunicateSettings =
         { "appId": "1923fe465772b674c05031428cc014d28", "popupWidget": true, "automaticChatOpenOnNavigation": true };
@@ -68,7 +68,14 @@
       var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
       window.kommunicate = m; m._globals = kommunicateSettings;
     })(document, window.kommunicate || {});
-  </script>
+  </script> -->
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <df-messenger
+          intent="WELCOME"
+          chat-title="Bot"
+          agent-id="43f3f7b5-6977-4006-affc-15a97f59b133"
+          language-code="vi"
+  ></df-messenger>
 </body>
 
 </html>

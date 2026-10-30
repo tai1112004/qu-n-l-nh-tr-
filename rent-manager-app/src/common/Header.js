@@ -16,7 +16,7 @@ class Header extends Component {
                             <span></span>
                             <span></span>
                         </button>
-                        <a className="navbar-brand text-brand" href="/">PhongTro<span className="color-b">SinhVien</span></a>
+                        <a className="navbar-brand text-brand" href="/">The <span className="color-b">Rental</span> Zone</a>
 
                         <div className="navbar-collapse collapse justify-content-center" id="navbarDefault">
                             <ul className="navbar-nav">

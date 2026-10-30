@@ -11,7 +11,7 @@ const Search = () => {
 
   const handleSearch = async () => {
     const token = localStorage.getItem("accessToken");
-    const response = await fetch(`http://localhost:8080/user/message/${username}`, {
+    const response = await fetch(`http://localhost:8081/user/message/${username}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -45,7 +45,7 @@ const Search = () => {
       const userId = user.id; // Lấy userId từ thông tin user
 
       // Gọi API để lấy thông tin tin nhắn với userId
-      const response = await fetch(`http://localhost:8080/user/message-chat/${userId}`, {
+      const response = await fetch(`http://localhost:8081/user/message-chat/${userId}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

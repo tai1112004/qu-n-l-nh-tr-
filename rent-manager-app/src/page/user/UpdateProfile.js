@@ -24,7 +24,7 @@ const UserUpdateProfile = () => {
     const handleUpdateClick = () => {
         const token = localStorage.getItem("accessToken");
     
-        fetch("http://localhost:8080/user/update", {
+        fetch("http://localhost:8081/user/update", {
             method: "PUT",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -66,7 +66,7 @@ const UserUpdateProfile = () => {
         const token = localStorage.getItem("accessToken");
 
         // Gọi API để lấy thông tin người dùng
-        fetch("http://localhost:8080/user/me/", {
+        fetch("http://localhost:8081/user/me/", {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`

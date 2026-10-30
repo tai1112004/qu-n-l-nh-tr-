@@ -12,14 +12,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.Objects;
 
 @Service
 public class FileStorageServiceImpl implements FileStorageService {
@@ -43,23 +41,27 @@ public class FileStorageServiceImpl implements FileStorageService {
 
     @Override
     public String storeFile(MultipartFile file) {
-        // Normalize file name
-        String fileName = StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
+        if (file == null || file.isEmpty() || !StringUtils.hasText(file.getOriginalFilename())) {
+            throw new FileStorageException("File upload không hợp lệ");
+        }
+
+        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 
         try {
-            // Check if the file's name contains invalid characters
-            if (fileName.contains(".."))
-                throw new FileStorageException("Invalid!!");
+            if (fileName.contains("..")) {
+                throw new FileStorageException("Tên file không hợp lệ");
+            }
 
-            // Copy file to the target location (Replacing existing file with the same name)
             Path targetLocation = this.fileStorageLocation.resolve(fileName);
-            String filePath = this.fileStorageLocation + "\\" + fileName;
-            ((MultipartFile) file).transferTo(new File(filePath));
-            //Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
+            if (!targetLocation.normalize().startsWith(this.fileStorageLocation)) {
+                throw new FileStorageException("Đường dẫn file không hợp lệ");
+            }
+
+            Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
 
             return fileName;
         } catch (IOException ex) {
-            throw new FileStorageException("Invalid!!!");
+            throw new FileStorageException("Không thể lưu file vào: " + this.fileStorageLocation, ex);
         }
     }
 

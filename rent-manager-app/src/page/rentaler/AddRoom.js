@@ -21,7 +21,10 @@ function AddRoom(props) {
         assets: [
             { name: '', number: '' }
         ],
-        files: []
+        files: [],
+        waterCost: 0,
+        publicElectricCost: 0,
+        internetCost: 0
     });
 
     const handleInputChange = (event) => {
@@ -78,6 +81,9 @@ function AddRoom(props) {
         formData.append('locationId', roomData.locationId);
         formData.append('categoryId', roomData.categoryId);
         formData.append('asset', roomData.assets.length);
+        formData.append('waterCost', roomData.waterCost);
+        formData.append('publicElectricCost', roomData.publicElectricCost);
+        formData.append('internetCost', roomData.internetCost);
         roomData.assets.forEach((asset, index) => {
             formData.append(`assets[${index}][name]`, asset.name);
             formData.append(`assets[${index}][number]`, asset.number);
@@ -144,13 +150,13 @@ function AddRoom(props) {
                     <div className="container-fluid p-0">
                         <div className="card">
                             <div className="card-header">
-                                <h5 className="card-title">Thêm phòng</h5>
+                                <h5 className="card-title">Thêm nhà trọ</h5>
                             </div>
                             <div className="card-body">
                                 <form onSubmit={handleSubmit}>
                                     <div className="row">
                                         <div className="mb-3 col-md-6">
-                                            <label className="form-label" htmlFor="title">Tiêu đề phòng</label>
+                                            <label className="form-label" htmlFor="title">Tiêu đề nhà trọ</label>
                                             <input type="text" className="form-control" id="title" name="title" value={roomData.title} onChange={handleInputChange} />
                                         </div>
                                         <div className="mb-3 col-md-6">
@@ -161,6 +167,18 @@ function AddRoom(props) {
                                     <div className="mb-3">
                                         <label className="form-label" htmlFor="price">Giá</label>
                                         <input type="number" className="form-control" id="price" name="price" value={roomData.price} onChange={handleInputChange} />
+                                    </div>
+                                    {/*<div className="mb-3">*/}
+                                    {/*    <label className="form-label" htmlFor="waterCost">Tiền nước (nếu là giá cố định)</label>*/}
+                                    {/*    <input type="number" className="form-control" id="waterCost" name="waterCost" value={roomData.waterCost} onChange={handleInputChange} />*/}
+                                    {/*</div>*/}
+                                    {/* <div className="mb-3">
+                                        <label className="form-label" htmlFor="publicElectricCost">Tiền điện chung</label>
+                                        <input type="number" className="form-control" id="publicElectricCost" name="publicElectricCost" value={roomData.publicElectricCost} onChange={handleInputChange} />
+                                    </div> */}
+                                    <div className="mb-3">
+                                        <label className="form-label" htmlFor="internetCost">Tiền mạng</label>
+                                        <input type="number" className="form-control" id="internetCost" name="internetCost" value={roomData.internetCost} onChange={handleInputChange} />
                                     </div>
                                     <div className="row">
                                         <div className="mb-3 col-md-6">
@@ -205,7 +223,7 @@ function AddRoom(props) {
                                             </div>
                                             <div className="mb-3 col-md-4">
                                                 <label className="form-label" htmlFor={`assetNumber${index}`}>Số lượng</label>
-                                                <input type="number" className="form-control" id={`assetNumber${index}`} name="number" value={asset.number} onChange={(event) => handleAssetChange(event, index)} />
+                                                <input min="1" type="number" className="form-control" id={`assetNumber${index}`} name="number" value={asset.number} onChange={(event) => handleAssetChange(event, index)} />
                                             </div>
                                             <div className="col-md-2">
                                                 <button type="button" style={{ marginTop: "34px" }} className="btn btn-danger" onClick={() => handleRemoveAsset(index)}>Xóa tài sản</button>

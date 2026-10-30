@@ -1,0 +1,25 @@
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+~$*
+
+# Build artifacts
+rental-management/target/
+rent-manager-app/build/
+rent-manager-app/node_modules/
+
+# Uploads & Temporary files
+uploads/
+tmp/
+*.log
+
+# Report test artifacts
+report/__pycache__/
+report/test_*.py
+report/test_*.docx
+.codebase-memory/

@@ -24,6 +24,9 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Transactional
     public UserDetails loadUserByUsername(String email)
             throws UsernameNotFoundException {
+        if ("admin".equalsIgnoreCase(email)) {
+            email = "admin@gmail.com";
+        }
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() ->
                         new UsernameNotFoundException("Email của bạn không tồn tại : " + email)

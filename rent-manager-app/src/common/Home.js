@@ -152,7 +152,7 @@ class Home extends Component {
                                         <div className="card-box-a card-shadow">
                                             <div className="img-box-a">
                                                 {room.roomMedia[0] ?
-                                                    <img src={room.roomMedia[0].files} alt="" className="img-a img-fluid" style={{ width: "350px", height: "450px" }} />
+                                                    <img src={"http://localhost:8081/document/"+room.roomMedia[0].files} alt="" className="img-a img-fluid" style={{ width: "350px", height: "450px" }} />
                                                     :
                                                     <img src="assets/img/property-1.jpg" alt="" className="img-a img-fluid" style={{ width: "350px", height: "450px" }} />
                                                 }
@@ -228,7 +228,7 @@ class Home extends Component {
                                         <h2 className="title-a">Người cho thuê</h2>
                                     </div>
                                     <div className="title-link">
-                                        <a href="agents-grid.html">Tất cả người cho thuê trọ
+                                        <a href="angent-gird">Tất cả người cho thuê trọ
                                             <span className="bi bi-chevron-right"></span>
                                         </a>
                                     </div>

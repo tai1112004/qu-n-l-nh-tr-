@@ -59,7 +59,7 @@ const ModalRoomDetails = ({ roomId }) => {
 
     const fetchComments = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/room/${roomId}/comments`);
+            const response = await axios.get(`http://localhost:8081/room/${roomId}/comments`);
             const comments = response.data; // Assuming API returns comments data
             setComments(comments);
         } catch (error) {
